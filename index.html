@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вопрос</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #ffe6f0;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  font-size: 28px;
+  padding: 18px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#result {
+  font-size: 32px;
+  margin-top: 30px;
+  min-height: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Будем ли мы целоваться на первой встрече? 💋</h1>
+
+<div class="buttons">
+  <button id="yesBtn" onclick="answerYes()">Да</button>
+  <button onclick="growYes()">Нет</button>
+</div>
+
+<p id="result"></p>
+
+<script>
+let scale = 1;
+
+const jokes = [
+  "Ты уверенa? 😏",
+  "Подумай ещё раз...",
+  "Кнопка 'Да' выглядит лучше 👀",
+  "Это временное решение 😌",
+  "Я подожду правильный ответ",
+  "Не торопись с выводами 😄"
+];
+
+function growYes() {
+  scale += 0.2;
+  document.getElementById("yesBtn").style.transform = `scale(${scale})`;
+
+  const text = jokes[Math.floor(Math.random() * jokes.length)];
+  document.getElementById("result").innerText = text;
+}
+
+function answerYes() {
+  document.getElementById("result").innerText = "Вот это я понимаю 😏💖";
+}
+</script>
+
+</body>
+</html>
